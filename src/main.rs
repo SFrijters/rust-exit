@@ -9,7 +9,9 @@ const APP_ID: &str = "net.quackor.rust_exit";
 
 fn main() -> glib::ExitCode {
     // Create a new application
-    let app = Application::builder().application_id(APP_ID).build();
+    let app = Application::builder()
+        .application_id(APP_ID)
+        .build();
 
     // Connect to signals
     app.connect_activate(build_ui);
@@ -32,9 +34,9 @@ fn dbus(cmd: &str) -> Result<(), Box<dyn std::error::Error>> {
 
 fn build_ui(app: &Application) {
     // Create buttons
-    let button_1 = Button::with_label("Reboot");
-    let button_2 = Button::with_label("Shutdown");
-    let button_3 = Button::with_label("Logout");
+    let button_1 = Button::with_mnemonic("_Reboot");
+    let button_2 = Button::with_mnemonic("_Shutdown");
+    let button_3 = Button::with_mnemonic("_Logout");
 
     button_1.connect_clicked(|_| dbus("Reboot").expect("dbus connection should work"));
     button_2.connect_clicked(|_| dbus("PowerOff").expect("dbus connection should work"));
@@ -56,6 +58,7 @@ fn build_ui(app: &Application) {
     let window = ApplicationWindow::builder()
         .application(app)
         .title("Logout")
+        .mnemonics_visible(true)
         .child(&gtk_box)
         .build();
     window.present();
