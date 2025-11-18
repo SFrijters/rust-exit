@@ -1,7 +1,10 @@
 [package]
 name = "rust-exit"
 version = "0.1.0"
+authors = ["Stefan Frijters <sfrijters@gmail.com>"]
 edition = "2024"
+description = "Minimal logout application using GTK4 and DBus"
+license = "MIT"
 
 [dependencies]
 gtk = { version = "0.10.2", package = "gtk4", features = ["v4_20"] }
