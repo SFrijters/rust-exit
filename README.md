@@ -1,5 +1,7 @@
 # rust-exit
 
+[![GitHub CI](https://github.com/SFrijters/rust-exit/actions/workflows/nix-flake-check.yml/badge.svg)](https://github.com/SFrijters/rust-exit/actions/workflows/nix-flake-check.yml)
+
 Even more minimal replacement for [bl-exit](https://github.com/BunsenLabs/bunsen-exit), using GTK4.
 
 The Shutdown and Reboot buttons use DBus. The Logout button assumes that openbox is the window manager.
